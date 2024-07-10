@@ -5,6 +5,9 @@
   "repository": "git@github.com:rendleyarnou/clean-react.git",
   "author": "Rendley Arnou <rendleyarnou7@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.10",
