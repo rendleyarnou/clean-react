@@ -1,6 +1,7 @@
 {
-  "*.{ts, tsx}": [
+  "*.{js, jsx, ts, tsx}": [
     "eslint 'src/**' --fix",
+    "prettier --write",
     "yarn run test:staged"
   ]
 }

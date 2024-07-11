@@ -1,5 +1,5 @@
-import { HttpPostClientSpy } from "../../test/mock-http-client";
-import { RemoteAuthentication } from "./remote-authentication";
+import { HttpPostClientSpy } from "../../test/mock-http-client"
+import { RemoteAuthentication } from "./remote-authentication"
 
 type SutTypes = {
   sut: RemoteAuthentication
