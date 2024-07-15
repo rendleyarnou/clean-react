@@ -11,7 +11,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'scss'],
+    extensions: ['.ts', '.tsx', '.js', '.scss'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -51,6 +51,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html'
+    })
   ]
 }
