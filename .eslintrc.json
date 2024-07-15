@@ -27,6 +27,8 @@
     "prefer-const": "error",
     "no-use-before-define": "error",
     "react/react-in-jsx-scope": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/jsx-one-expression-per-line": "off",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [
