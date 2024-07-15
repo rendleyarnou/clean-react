@@ -12,6 +12,7 @@
     "test:ci": "yarn test -- --coverage"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/faker": "5.5.3",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.10",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@typescript-eslint/parser": "^7.16.0",
+    "axios": "^1.7.2",
     "eslint-plugin-n": "^17.9.0"
   }
 }
