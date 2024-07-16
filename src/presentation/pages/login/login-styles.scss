@@ -17,6 +17,30 @@ body {
   background-color: $background;
 }
 
+input[type='password'],
+input[type='email'] {
+  border: 1px solid $primaryLight;
+  line-height: 40px;
+  border-radius: 4px;
+
+  &:focus {
+    outline-color: $primaryLight;
+  }
+}
+
+button {
+  background-color: $primary;
+  line-height: 60px;
+  color: $white;
+  border-radius: 8px;
+  font-size: 16px;
+  border: none;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
 .login {
   display: flex;
   flex-direction: column;
@@ -24,16 +48,42 @@ body {
   justify-content: space-between;
 
   .header {
+    display: flex;
+    flex-direction: column;
+    border-top: 40px solid $primaryDark;
     background-color: $primary;
-    height: 40px;
+    align-items: center;
+
+    img {
+      margin-top: 40px;
+    }
+
+    h1 {
+      color: $white;
+      margin: 16px 0px;
+    }
   }
 
   .form {
-    background-color: $primaryLight;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    width: 600px;
+    padding: 40px;
+    border-radius: 8px;
+    align-self: center;
+    box-shadow: 0px 1px 3px -1px $black;
+
+    h2 {
+      color: $primaryDark;
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
   }
 
   .footer {
     background-color: $primary;
-    height: 40px;
+    height: 48px;
   }
 }
