@@ -1,7 +1,16 @@
 {
   "*.{js, jsx, ts, tsx}": [
+    "yarn format",
+    "yarn test",
     "eslint 'src/**' --fix",
     "prettier --write",
     "yarn run test:staged"
-  ]
+  ],
+  "*.html": [
+    "yarn format",
+    "yarn test",
+    "eslint",
+    "prettier --write"
+  ],
+  "*.scss": "prettier --write"
 }
