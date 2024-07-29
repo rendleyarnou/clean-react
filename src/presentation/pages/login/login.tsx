@@ -4,11 +4,11 @@ import { LoginHeader, Input, FormStatus, Footer } from '@/presentation/component
 import Context from '@/presentation/contexts/form/form-context'
 import { Validation } from '@/presentation/protocols/validation';
 
-type LoginProps = {
+type Props = {
   validation: Validation
 }
 
-const Login: React.FC<LoginProps> = ({ validation }: LoginProps) => {
+const Login: React.FC<Props> = ({ validation }: Props) => {
   const [state, setState] = useState({
     isLoading: false,
     email: '',

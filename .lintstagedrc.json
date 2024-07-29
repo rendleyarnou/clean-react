@@ -2,8 +2,8 @@
   "*.{js, jsx, ts, tsx}": [
     "yarn format",
     "yarn test",
-    "eslint 'src/**' --fix",
     "prettier --write",
+    "yarn run lint:fix",
     "yarn run test:staged"
   ],
   "*.html": [
