@@ -13,7 +13,10 @@ type SutTypes = {
 }
 
 const makeSut = (url: string = faker.internet.url()): SutTypes => {
-  const httpPostClientSpy = new HttpPostClientSpy<AuthenticationParams, AccountModel>()
+  const httpPostClientSpy = new HttpPostClientSpy<
+    AuthenticationParams,
+    AccountModel
+  >()
   const sut = new RemoteAuthentication(url, httpPostClientSpy)
 
   return {
@@ -28,14 +31,14 @@ describe('RemoteAuthentication', () => {
     const { sut, httpPostClientSpy } = makeSut(url)
     await sut.auth(mockAuthentication())
     expect(httpPostClientSpy.url).toBe(url)
-  });
+  })
 
   test('should call httpPostClient with correct body', async () => {
     const { sut, httpPostClientSpy } = makeSut()
     const authenticationParams = mockAuthentication()
     await sut.auth(authenticationParams)
     expect(httpPostClientSpy.body).toEqual(authenticationParams)
-  });
+  })
 
   test('should throw InvalidCredentialError if HttpPostClient returns 401', async () => {
     const { sut, httpPostClientSpy } = makeSut()
@@ -44,7 +47,7 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new InvalidCredentialsError())
-  });
+  })
 
   test('should throw UnexpectedError if HttpPostClient returns 400', async () => {
     const { sut, httpPostClientSpy } = makeSut()
@@ -53,7 +56,7 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
-  });
+  })
 
   test('should throw UnexpectedError if HttpPostClient returns 500', async () => {
     const { sut, httpPostClientSpy } = makeSut()
@@ -62,7 +65,7 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
-  });
+  })
 
   test('should throw UnexpectedError if HttpPostClient returns 404', async () => {
     const { sut, httpPostClientSpy } = makeSut()
@@ -71,7 +74,7 @@ describe('RemoteAuthentication', () => {
     }
     const promise = sut.auth(mockAuthentication())
     await expect(promise).rejects.toThrow(new UnexpectedError())
-  });
+  })
 
   test('should return an AccountModel if HttpPostClient returns 200', async () => {
     const { sut, httpPostClientSpy } = makeSut()
@@ -82,5 +85,5 @@ describe('RemoteAuthentication', () => {
     }
     const account = await sut.auth(mockAuthentication())
     expect(account).toEqual(httpResult)
-  });
-});
+  })
+})

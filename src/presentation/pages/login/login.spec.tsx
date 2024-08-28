@@ -1,5 +1,10 @@
 import React from 'react'
-import { cleanup, fireEvent, render, RenderResult } from '@testing-library/react'
+import {
+  cleanup,
+  fireEvent,
+  render,
+  RenderResult
+} from '@testing-library/react'
 import Login from './login'
 import { ValidationSpy } from '@/presentation/test'
 import faker from 'faker'
@@ -33,7 +38,7 @@ describe('Login Component', () => {
     const passwordStatus = sut.getByTestId('password-status')
     expect(passwordStatus.title).toBe('Campo obrigatório')
     expect(passwordStatus.textContent).toBe('🔴')
-  });
+  })
 
   test('should call Validation with correct email', () => {
     const { sut, validationSpy } = makeSut()
@@ -42,7 +47,7 @@ describe('Login Component', () => {
     fireEvent.input(emailInput, { target: { value: email } })
     expect(validationSpy.fieldName).toBe('email')
     expect(validationSpy.fieldValue).toBe(email)
-  });
+  })
 
   test('should call Validation with correct password', () => {
     const { sut, validationSpy } = makeSut()
@@ -51,5 +56,5 @@ describe('Login Component', () => {
     fireEvent.input(passwordInput, { target: { value: password } })
     expect(validationSpy.fieldName).toBe('password')
     expect(validationSpy.fieldValue).toBe(password)
-  });
-});
+  })
+})
