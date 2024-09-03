@@ -190,10 +190,10 @@ describe('Login Component', () => {
     )
   })
 
-  test.only('should go to signup page', () => {
+  test('should go to signup page', () => {
     const { sut } = makeSut()
     const signup = sut.getByTestId('signup')
-    console.log(history)
     fireEvent.click(signup)
+    expect(history.location.pathname).toBe('/signup')
   })
 })
