@@ -12,11 +12,11 @@ const makeSut = (fieldName: string): SutTypes => {
     new FieldValidationSpy(fieldName),
     new FieldValidationSpy(fieldName)
   ]
-    const sut = ValidationComposite.build(fieldValidationsSpy)
-    return {
-      sut,
-      fieldValidationsSpy
-    }
+  const sut = ValidationComposite.build(fieldValidationsSpy)
+  return {
+    sut,
+    fieldValidationsSpy
+  }
 }
 
 describe('ValidationComposite', () => {
