@@ -13,7 +13,7 @@ describe('MinLengthValidation', () => {
 
   test('should return falsy if value is valid', () => {
     const sut = makeSut()
-    const error = sut.validate(faker.random.alphaNumeric(5))
+    const error = sut.validate(faker.internet.email())
     expect(error).toBeFalsy()
   })
 })
