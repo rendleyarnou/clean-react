@@ -8,6 +8,7 @@
     ],
     "esModuleInterop": true,
     "module": "esnext",
+    "strictNullChecks": true,
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "rootDir": "src",
@@ -21,6 +22,7 @@
     }
   },
   "include": [
-    "src"
+    "src",
+    "webpack.config.js"
   ]
 }

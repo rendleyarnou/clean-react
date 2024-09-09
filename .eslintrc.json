@@ -5,11 +5,11 @@
     "standard-with-typescript",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:cypress/recommended",
-    "prettier/react"
+    "plugin:cypress/recommended"
   ],
   "plugins": [
     "react",
+    "react-hooks",
     "cypress",
     "@typescript-eslint",
     "prettier"
@@ -19,9 +19,14 @@
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "import/no-duplicates": "error",
+    "react/prop-types": "off",
     "prettier/prettier": "error",
     "eqeqeq": "error",
     "prefer-const": "error",
@@ -44,6 +49,8 @@
       "error",
       "ignorePackages",
       {
+        "js": "never",
+        "jsx": "never",
         "ts": "never",
         "tsx": "never"
       }
@@ -54,7 +61,13 @@
       "version": "detect"
     },
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     },
     "import/extensions": [
       ".js",
@@ -62,5 +75,6 @@
       ".tsx",
       ".ts"
     ]
-  }
+  },
+  "ignorePatterns": ["jest.config.js"]
 }

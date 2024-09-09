@@ -10,7 +10,7 @@ import {
   RenderResult,
   waitFor
 } from '@testing-library/react'
-import Login from './login'
+import { Login } from '@/presentation/pages'
 import { ValidationStub, AuthenticationSpy } from '@/presentation/test'
 import { InvalidCredentialsError } from '@/domain/errors'
 
@@ -78,7 +78,7 @@ const testStatusForField = (
   validationError?: string
 ): void => {
   const passwordStatus = sut.getByTestId(`${fieldName}-status`)
-  expect(passwordStatus.title).toBe(validationError || 'Tudo certo!')
+  expect(passwordStatus.title).toBe(validationError ?? 'Tudo certo!')
   expect(passwordStatus.textContent).toBe(validationError ? '🔴' : '🟢')
 }
 

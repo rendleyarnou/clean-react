@@ -23,7 +23,7 @@ const Input: React.FC<Props> = (props: Props) => {
     return error ? '🔴' : '🟢'
   }
   const getTitle = (): string => {
-    return error || 'Tudo certo!'
+    return error ?? 'Tudo certo!'
   }
   return (
     <div className={Styles.inputWrap}>
