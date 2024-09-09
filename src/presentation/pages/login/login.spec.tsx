@@ -7,7 +7,7 @@ import {
   cleanup,
   fireEvent,
   render,
-  RenderResult,
+  type RenderResult,
   waitFor
 } from '@testing-library/react'
 import { Login } from '@/presentation/pages'
