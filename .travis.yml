@@ -3,4 +3,4 @@ node_js:
   - 12
 script:
   - eslint .
-  - yarn test:ci
+  - yarn test:coveralls
