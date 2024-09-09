@@ -1,4 +1,8 @@
 {
+  "include": [
+    "src",
+    "webpack.config.js"
+  ],
   "compilerOptions": {
     "target": "es6",
     "lib": [
@@ -10,7 +14,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "rootDir": "src",
     "baseUrl": "src",
     "allowJs": true,
     "resolveJsonModule": true,
@@ -19,9 +22,5 @@
         "*"
       ]
     }
-  },
-  "include": [
-    "src",
-    "webpack.config.js"
-  ]
+  }
 }

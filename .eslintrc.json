@@ -18,13 +18,15 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off", // mango
+    "@typescript-eslint/strict-boolean-expressions": "off", // mango
+    "@typescript-eslint/comma-spacing": "off", // mango
+    "@typescript-eslint/return-await": "off", // mango
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "import/no-duplicates": "error",
     "react/prop-types": "off",
@@ -33,8 +35,8 @@
     "prefer-const": "error",
     "no-use-before-define": "error",
     "react/react-in-jsx-scope": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error", // mango
+    "react/jsx-uses-vars": "error", // mango
     "react/jsx-one-expression-per-line": "off",
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [
