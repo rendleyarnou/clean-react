@@ -11,7 +11,7 @@ const makeSut = (): SutTypes => {
   const setStorageMock = new SetStorageMock()
   const sut = new LocalSaveAccessToken(setStorageMock)
 
-  return{
+  return {
     sut,
     setStorageMock
   }
