@@ -13,7 +13,13 @@ const Router: React.FC<Props> = ({ MakeLogin }: Props) => {
         <Route path='/login' element={<MakeLogin />} />
         <Route
           path='/signup'
-          element={<Signup validation={undefined} addAccount={undefined} />}
+          element={
+            <Signup
+              validation={undefined}
+              addAccount={undefined}
+              saveAccessToken={undefined}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
