@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Styles from './login-styles.scss'
+import Styles from './signup-styles.scss'
 import {
   LoginHeader,
   Input,
@@ -9,18 +8,19 @@ import {
   SubmitButton
 } from '@/presentation/components'
 import Context from '@/presentation/contexts/form/form-context'
-import { type Validation } from '@/presentation/protocols/validation'
-import { type Authentication, type SaveAccessToken } from '@/domain/usecases'
+import type { Validation } from '@/presentation/protocols/validation'
+import type { AddAccount, SaveAccessToken } from '@/domain/usecases'
+import { useNavigate, Link } from 'react-router-dom'
 
 type Props = {
   validation: Validation
-  authentication: Authentication
+  addAccount: AddAccount
   saveAccessToken: SaveAccessToken
 }
 
-const Login: React.FC<Props> = ({
+const Signup: React.FC<Props> = ({
   validation,
-  authentication,
+  addAccount,
   saveAccessToken
 }: Props) => {
   const navigate = useNavigate()
@@ -28,26 +28,41 @@ const Login: React.FC<Props> = ({
   const [state, setState] = useState({
     isLoading: false,
     isFormInvalid: true,
+    name: '',
     email: '',
     password: '',
+    passwordConfirmation: '',
+    nameError: '',
     emailError: '',
     passwordError: '',
+    passwordConfirmationError: '',
     mainError: ''
   })
 
   useEffect(() => {
-    const { email, password } = state
-    const formData = { email, password }
+    const { name, email, password, passwordConfirmation } = state
+    const formData = { name, email, password, passwordConfirmation }
+    const nameError = validation.validate('name', formData)
     const emailError = validation.validate('email', formData)
     const passwordError = validation.validate('password', formData)
+    const passwordConfirmationError = validation.validate(
+      'passwordConfirmation',
+      formData
+    )
 
     setState({
       ...state,
+      nameError,
       emailError,
       passwordError,
-      isFormInvalid: !!emailError || !!passwordError
+      passwordConfirmationError,
+      isFormInvalid:
+        !!nameError ||
+        !!emailError ||
+        !!passwordError ||
+        !!passwordConfirmationError
     })
-  }, [state.email, state.password])
+  }, [state.name, state.email, state.password, state.passwordConfirmation])
 
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
@@ -58,9 +73,11 @@ const Login: React.FC<Props> = ({
         return
       }
       setState({ ...state, isLoading: true })
-      const account = await authentication.auth({
+      const account = await addAccount.add({
+        name: state.name,
         email: state.email,
-        password: state.password
+        password: state.password,
+        passwordConfirmation: state.passwordConfirmation
       })
       await saveAccessToken.save(account.accessToken)
       navigate('/')
@@ -70,7 +87,7 @@ const Login: React.FC<Props> = ({
   }
 
   return (
-    <div className={Styles.login}>
+    <div className={Styles.signup}>
       <LoginHeader />
       <Context.Provider value={{ state, setState }}>
         <form
@@ -78,16 +95,22 @@ const Login: React.FC<Props> = ({
           className={Styles.form}
           onSubmit={handleSubmit}
         >
-          <h2>Login</h2>
+          <h2>Criar conta</h2>
+          <Input type='text' name='name' placeholder='Digite seu nome' />
           <Input type='email' name='email' placeholder='Digite seu E-mail' />
           <Input
             type='password'
             name='password'
             placeholder='Digite sua senha'
           />
-          <SubmitButton text='Entrar' />
-          <Link data-testid='signup-link' to='/signup' className={Styles.link}>
-            Criar conta
+          <Input
+            type='password'
+            name='passwordConfirmation'
+            placeholder='Repita sua senha'
+          />
+          <SubmitButton text='Cadastrar' />
+          <Link data-testid='login-link' to='/login' className={Styles.link}>
+            Voltar para login
           </Link>
           <FormStatus />
         </form>
@@ -97,4 +120,4 @@ const Login: React.FC<Props> = ({
   )
 }
 
-export default Login
+export default Signup

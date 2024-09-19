@@ -1,4 +1,4 @@
-import { makeLoginValidation } from './login-validatio-factory'
+import { makeLoginValidation } from './login-validation-factory'
 import { ValidationComposite } from '@/validation/validators'
 import { ValidationBuilder } from '@/validation/validators/builder/validation-builder'
 
