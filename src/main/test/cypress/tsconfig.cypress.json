@@ -1,0 +1,12 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "cypress"]
+  },
+  "include": [
+    "../../../../tsconfig.json",
+    "../../../../cypress.config.json",
+    "../../../../node_modules/cypress",
+    "./*/*.ts"
+  ]
+}

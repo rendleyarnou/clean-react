@@ -1,4 +1,10 @@
 {
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "cypress/globals": true
+
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -15,7 +21,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./src/main/test/cypress/tsconfig.cypress.json"]
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off", // mango
@@ -79,6 +85,5 @@
       ".tsx",
       ".ts"
     ]
-  },
-  "ignorePatterns": ["jest.config.js"]
+  }
 }

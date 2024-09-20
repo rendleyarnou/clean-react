@@ -1,9 +1,6 @@
 {
-  "include": [
-    "src",
-    "webpack.config.js"
-  ],
   "compilerOptions": {
+    "types": ["jest", "cypress", "node"],
     "target": "es6",
     "lib": [
       "dom",
@@ -13,7 +10,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react-jsx",
+    "jsx": "react",
     "baseUrl": "src",
     "allowJs": true,
     "resolveJsonModule": true,
@@ -22,5 +19,14 @@
         "*"
       ]
     }
-  }
+  },
+  "include": [
+    "src",
+    "jest.config.js",
+    "webpack.config.js",
+    "cypress.config.ts"
+  ],
+  "exclude": [
+    "src/main/test/cypress/tsconfig.cypress.json"
+  ],
 }
