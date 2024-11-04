@@ -1,5 +1,5 @@
-describe('template spec', () => {
-  it('passes', () => {
+describe('Login', () => {
+  it('should load with correct initial state', () => {
     cy.visit('login')
   })
 })

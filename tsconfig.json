@@ -2,11 +2,7 @@
   "compilerOptions": {
     "types": ["jest", "cypress", "node"],
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,21 +11,14 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "paths": {
-      "@/*": [
-        "*"
-      ]
+      "@/*": ["*"]
     }
   },
   "include": [
-    "src",
-    "jest.config.js",
-    "webpack.config.js",
-    "cypress.config.ts"
+    "src"
   ],
   "exclude": [
-    "jest.config.js",
-    "webpack.config.js",
-    "cypress.config.ts",
+    "node_modules",
     "src/main/test/cypress/tsconfig.cypress.json"
-  ],
+  ]
 }

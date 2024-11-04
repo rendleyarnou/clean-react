@@ -2,15 +2,10 @@
   "*.{js, jsx, ts, tsx}": [
     "yarn format",
     "yarn test",
-    "prettier --write",
+    "prettier --write --ignore-unknown",
     "yarn run lint:fix",
     "yarn run test:staged"
   ],
-  "*.html": [
-    "yarn format",
-    "yarn test",
-    "eslint",
-    "prettier --write"
-  ],
+  "*.html": ["yarn format", "yarn test", "eslint", "prettier --write"],
   "*.scss": "prettier --write"
 }

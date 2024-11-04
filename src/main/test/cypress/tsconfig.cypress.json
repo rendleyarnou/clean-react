@@ -4,9 +4,7 @@
     "types": ["jest", "cypress"]
   },
   "include": [
-    "../../../../tsconfig.json",
-    "../../../../cypress.config.json",
-    "../../../../node_modules/cypress",
-    "./*/*.ts"
+    "../../../../cypress.config.ts",
+    "./**/*.ts"
   ]
 }
